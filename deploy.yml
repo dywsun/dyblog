@@ -1,0 +1,51 @@
+name: Build & Deploy Blog
+
+on:
+  push:
+    branches:
+      - main          # 推送到 main 分支时触发
+  workflow_dispatch:  # 允许在 GitHub 网页上手动触发
+
+# 授予 GitHub Pages 部署权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一个部署任务运行，新的推送会取消上一个还在排队的任务
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  # ── 第一步：构建 HTML ────────────────────────────────────────────────────────
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Run md2html
+        run: |
+          chmod +x md2html.sh
+          ./md2html.sh ./posts ./dist
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist   # 将 dist/ 整个目录作为 Pages 站点根目录
+
+  # ── 第二步：部署到 GitHub Pages ─────────────────────────────────────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}  # 部署后在 Actions 日志里显示访问地址
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
