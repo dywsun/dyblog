@@ -29,8 +29,8 @@ set -euo pipefail
 # =============================================================================
 # 站点配置 — 在这里修改你的博客名称和副标题
 # =============================================================================
-SITE_NAME="dywsun"
-SITE_DESC="live every day, keep coding!"
+SITE_NAME="My Blog"
+SITE_DESC="Writing &amp; Thinking"
 # =============================================================================
 
 # ─── 颜色输出 ────────────────────────────────────────────────────────────────
@@ -156,14 +156,14 @@ generate_html() {
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F6F1EB;
+            --bg-color: #FCF7EE;
             --board-bg: #FFFFFF;
-            --text-main: #4F4543;
-            --text-light: #9A908D;
-            --line-color: #E3DDD8;
+            --text-main: #180A00;
+            --text-light: #AA7A42;
+            --line-color: #E0C8A0;
             --font-size-content: 13px;
             --font-size-title: 16px;
-            --accent-color: #C55B5B;
+            --accent-color: #B06820;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -239,7 +239,7 @@ generate_html() {
             position: relative;
             margin-bottom: 1.5em;
             border-radius: 6px;
-            border: 1px solid #EFECE8;
+            border: 1px solid #D8C090;
             overflow: hidden;
         }
         /* 顶栏：语言标志 + 复制按钮 */
@@ -247,9 +247,9 @@ generate_html() {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #EFECE8;
+            background-color: #EDD5A8;
             padding: 5px 12px;
-            border-bottom: 1px solid #E5E0D9;
+            border-bottom: 1px solid #D8C090;
             min-height: 30px;
         }
         .code-lang {
@@ -278,11 +278,11 @@ generate_html() {
             line-height: 1;
         }
         .copy-btn:hover { color: var(--text-main); background: rgba(0,0,0,0.06); }
-        .copy-btn.copied { color: #5A9E6F; }
+        .copy-btn.copied { color: #38A169; }
         .copy-btn i { font-size: 12px; }
         /* pre 本身去掉 border/margin，交给 .code-block 管理 */
         .post-content pre {
-            background-color: #F7F5F2;
+            background-color: #FAF0D8;
             padding: 14px 15px;
             overflow-x: auto;
             margin-bottom: 0;
@@ -292,17 +292,17 @@ generate_html() {
         }
         .post-content code { font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace; color: #333; }
         .post-content p code {
-            background-color: #EFECE8;
+            background-color: #EDD5A8;
             padding: 2px 4px;
             border-radius: 3px;
             font-size: 0.9em;
-            color: #A65D5D;
+            color: #B05010;
         }
         .post-content blockquote {
             margin: 1.5em 0;
             padding: 0.5em 1.5em;
             border-left: 4px solid var(--text-main);
-            background-color: #FAFAFA;
+            background-color: #FDF4E4;
             color: var(--text-light);
             font-style: italic;
         }
@@ -312,7 +312,7 @@ generate_html() {
         .post-content ul, .post-content ol { margin-bottom: 1.5em; padding-left: 1.5em; }
         .post-content li { margin-bottom: 0.5em; }
         .post-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.5em; font-size: 12px; }
-        .post-content th { background: #F2EFE9; padding: 8px 12px; text-align: left; border-bottom: 2px solid var(--line-color); }
+        .post-content th { background: #EDD5A8; padding: 8px 12px; text-align: left; border-bottom: 2px solid var(--line-color); }
         .post-content td { padding: 8px 12px; border-bottom: 1px solid var(--line-color); }
         .post-content hr { border: none; border-top: 1px solid var(--line-color); margin: 2em 0; }
         .post-footer {
@@ -325,7 +325,7 @@ generate_html() {
             flex-shrink: 0;
         }
         .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag { font-size: 11px; padding: 3px 8px; background-color: #F2EFE9; color: var(--text-main); border-radius: 20px; }
+        .tag { font-size: 11px; padding: 3px 8px; background-color: #EDD5A8; color: var(--text-main); border-radius: 20px; }
         @media (max-width: 700px) {
             body { display: block; }
             .content-board { width: 100%; padding: 30px 20px; border-radius: 0; box-shadow: none; min-height: 100vh; }
@@ -494,12 +494,12 @@ generate_index() {
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F6F1EB;
+            --bg-color: #FCF7EE;
             --board-bg: #FFFFFF;
-            --text-main: #4F4543;
-            --text-light: #9A908D;
-            --line-color: #E3DDD8;
-            --accent-color: #C55B5B;
+            --text-main: #180A00;
+            --text-light: #AA7A42;
+            --line-color: #E0C8A0;
+            --accent-color: #B06820;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
